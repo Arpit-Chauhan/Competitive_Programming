@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 import java.io.*; 
@@ -103,3 +104,110 @@ public class PlateGame
 		}
     } 
 }
+=======
+
+
+import java.io.*; 
+import java.util.*; 
+
+
+public class PlateGame
+{
+
+	public static void main(String args[])
+	{
+		
+		FastReader sc= new FastReader();
+		PrintWriter out = new PrintWriter(System.out);
+
+		int a,b,r,i,j;
+		String s;
+
+		a=sc.nextInt();
+		b=sc.nextInt();
+		r=sc.nextInt();
+		if(2*r<=a && 2*r<=b)
+		out.println("First");
+		else
+			out.println("Second");
+
+		out.close();
+	}
+	
+
+
+
+
+	/*
+		FASTREADER
+	*/
+	static class FastReader 
+    	{ 
+        BufferedReader br; 
+        StringTokenizer st; 
+  
+        public FastReader() 
+        { 
+            br = new BufferedReader(new
+                     InputStreamReader(System.in)); 
+        } 
+  
+        String next() 
+        { 
+            while (st == null || !st.hasMoreElements()) 
+            { 
+                try
+                { 
+                    st = new StringTokenizer(br.readLine()); 
+                } 
+                catch (IOException  e) 
+                { 
+                    e.printStackTrace(); 
+                } 
+            } 
+            return st.nextToken(); 
+        } 
+  
+        int nextInt() 
+        { 
+            return Integer.parseInt(next()); 
+        } 
+  
+        long nextLong() 
+        { 
+            return Long.parseLong(next()); 
+        } 
+  
+        double nextDouble() 
+        { 
+            return Double.parseDouble(next()); 
+        } 
+  
+        String nextLine() 
+        { 
+            String str = ""; 
+            try
+            { 
+                str = br.readLine(); 
+            } 
+            catch (IOException e) 
+            { 
+                e.printStackTrace(); 
+            } 
+            return str; 
+        } 
+	
+		/*DEFINED BY ME
+		*/
+		int[] readArray(int n){
+			
+			int arr[]=new int[n];
+			
+			for(int i=0;i<n;i++)
+				arr[i]=nextInt();
+			
+			return arr;
+		}
+    } 
+}
+>>>>>>> 20c77ecbb41f8662abb4a4de6e48dad11dca14bb

@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import java.util.Scanner;
 
 public class AddOddSubEven
 {
 	public static void main(String[] args)
+=======
+import java.util.*;
+import java.util.Collections;
+
+public class AddOddSubEven
+{
+	public static void main(String args[])
+>>>>>>> 20c77ecbb41f8662abb4a4de6e48dad11dca14bb
 	{
 		
 		Scanner sc=new Scanner(System.in);

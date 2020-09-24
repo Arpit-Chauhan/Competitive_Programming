@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 import java.io.BufferedReader; 
 import java.io.IOException; 
@@ -82,4 +83,28 @@ public class TwobagsofPotatoes{
 	        } 
 	    } 
 	
+=======
+import java.util.*;
+import java.io.*;
+public class TwobagsofPotatoes{
+
+	public static void main(String [] args){
+
+		Scanner input = new Scanner(System.in);
+		int y,k,n;
+		y = input.nextInt();
+		k = input.nextInt();
+		n = input.nextInt();
+		int x = (y/k)+1;
+	int flag = 1;
+	 while(x*k <= n){
+
+                    System.out.print((x*k - y)+" ");
+                    flag = 0;
+                    x++;
+                }
+                if(flag==1)
+                    System.out.print(-1);
+	}
+>>>>>>> 20c77ecbb41f8662abb4a4de6e48dad11dca14bb
 }
