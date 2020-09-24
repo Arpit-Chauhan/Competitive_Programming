@@ -1,5 +1,0 @@
-ImportantPrograms/
-Miscellaneous/
-*.iml
-.idea/
-.gitignore
