@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 7c3d9a578623ace8c9a3e1cfe7b1db27907a676f
 
 import java.util.*;
 import java.util.Collections;
@@ -30,3 +34,40 @@ public class GamewithSticks
 	}
 }
 
+<<<<<<< HEAD
+=======
+=======
+
+import java.util.*;
+import java.util.Collections;
+
+public class GamewithSticks
+{
+	public static void main(String args[])
+	{
+		
+		Scanner sc=new Scanner(System.in);
+
+		int m,n,count;
+		count=0;
+	
+		n=sc.nextInt();
+		m=sc.nextInt();
+		
+		int i=1;
+		while(true) {
+			if((n-i)==0 || (m-i)==0)
+				break;
+			count++;
+			i++;
+		}
+		if(count%2==0)
+			System.out.println("Akshat");
+		else
+			System.out.println("Malvika");
+		sc.close();
+	}
+}
+
+>>>>>>> 20c77ecbb41f8662abb4a4de6e48dad11dca14bb
+>>>>>>> 7c3d9a578623ace8c9a3e1cfe7b1db27907a676f
