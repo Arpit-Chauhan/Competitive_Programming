@@ -1,6 +1,6 @@
-ImportantPrograms
-Miscellaneous
+ImportantPrograms/
+Miscellaneous/
 *.iml
 .idea
 .gitignore.txt
-out
+out/
