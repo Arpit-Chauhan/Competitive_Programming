@@ -93,12 +93,9 @@ public class NumberOfApartments_Edu96 {
         /*DEFINED BY ME
          */
         int[] readArray(int n) {
-
             int arr[] = new int[n];
-
             for (int i = 0; i < n; i++)
                 arr[i] = nextInt();
-
             return arr;
         }
     }

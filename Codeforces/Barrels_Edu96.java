@@ -17,7 +17,7 @@ public class Barrels_Edu96 {
             n = sc.nextInt();
             k=sc.nextInt();
             int arr[] = sc.readArray(n);
-            Arrays.sort(arr);
+            sc.sort(arr);
             long sum=arr[n-1];
                 for (i = n-2; i >= 0; i--) {
                     if(k>0)
@@ -80,13 +80,18 @@ public class Barrels_Edu96 {
         /*DEFINED BY ME
          */
         int[] readArray(int n) {
-
             int arr[] = new int[n];
-
             for (int i = 0; i < n; i++)
                 arr[i] = nextInt();
-
             return arr;
+        }
+         void sort(int arr[]){
+            ArrayList<Integer> l=new ArrayList<>();
+            for (int i: arr)
+                l.add(i);
+            Collections.sort(l);
+            for (int i = 0; i < arr.length; i++)
+                arr[i]=l.get(i);
         }
     }
 }
