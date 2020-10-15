@@ -1,11 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-/*
-*
-* TLE
-*
-* */
+
 public class EasyNumberChallenge {
 
     public static void main(String args[]) {
@@ -18,31 +14,42 @@ public class EasyNumberChallenge {
         int a= sc.nextInt();
         int b= sc.nextInt();int c= sc.nextInt();
         long sum=0;
-        List<Integer> list=new ArrayList<>();
         long mod=1073741824;
-        for (i = 1; i <=a ; i++) {
-            for (j = 1; j <=b ; j++) {
-                for (k = 1; k <=c ; k++)
-                    list.add(i*j*k);
-            }
-        }
-        for (i = 0; i < list.size(); i++) {
-            long count=0;
-            long num=list.get(i);
-            for (j = 1; j <=(long)Math.sqrt(num) ; j++) {
-              if (num%j==0){
-                  if (num/j==j)
-                      count++;
-                  else
-                      count+=2;
-              }
-            }
-            sum+=count;
-        }
-        out.println(sum%mod);
+        int m = a * b * c;
+        long[] sol = new long[m + 1];
+        long MOD = 1073741824  ;
 
+        for (i = 1; i <= a; i++)
+            for (j = 1; j <= b; j++)
+                for (k = 1; k <= c; k++)
+                    sum += numberOfDivisors(i * j * k, sol);
+
+        out.println(sum % MOD);
         out.close();
     }
+
+     static long numberOfDivisors(long n, long[] sol)
+    {
+        long ans = 0;
+
+        if (sol[(int) n] != 0)
+            return sol[(int) n];
+
+        for (int i = 1; i * i <= n; i++)
+        {
+            if (n % i == 0)
+            {
+                ans++;
+                if (i * i != n)
+                    ans++;
+            }
+        }
+        sol[(int) n] = ans;
+
+        return ans;
+    }
+
+
 
 
     /*
