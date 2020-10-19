@@ -2,42 +2,46 @@ import java.io.*;
 import java.util.*;
 
 
-public class KuriyamaMiraisStones {
+public class TPrimes {
 
     public static void main(String args[]) {
 
         FastReader sc = new FastReader();
         PrintWriter out = new PrintWriter(System.out);
 
-        int t, n, i, j,l,r;
+        int t, n, i, j;
         String s;
 
         n = sc.nextInt();
-        int arr[] = sc.readArray(n);
-        int b[]=Arrays.copyOf(arr,n);
-        sc.sort(b);
-        long pret1[]=new long[n+1];
-        long pret2[]=new long[n+1];
-        pret1[1]=arr[0];
-        pret2[1]=b[0];
-        for (i = 2; i <=n ; i++)
-            pret1[i]=pret1[i-1]+arr[i-1];
-        for (i = 2; i <=n ; i++)
-            pret2[i]=pret2[i-1]+b[i-1];
+        long arr[]=new long[n];
+        for (i = 0; i < n; i++)
+            arr[i]= sc.nextLong();
 
-        int m=sc.nextInt();
-        while(m-->0){
-            long sum=0;
-            t=sc.nextInt();
-            l=sc.nextInt();
-            r=sc.nextInt();
-            if (t==1)
-                out.println(pret1[r]-pret1[l-1]);
+        int num=(int)Math.pow(10,6);
+        boolean ans[] =checkPrime();
+        for (i = 0; i < n; i++) {
+            int k=(int)Math.sqrt(arr[i]);
+            if((long)k*(long)k==arr[i] && ans[k])
+                System.out.println("YES");
             else
-                out.println(pret2[r]-pret2[l-1]);
+                System.out.println("NO");
         }
-
         out.close();
+    }
+
+    public static boolean[] checkPrime() {
+        int num=(int)Math.pow(10,6);
+        boolean prime[]=new boolean[num+1];
+
+        Arrays.fill(prime, true);
+        prime[0]=prime[1]=false;
+
+        for(int i=2;i<=Math.sqrt(num);i++) {
+            for(int j=i*i;j<=num;j+=i) {
+                prime[j]=false;
+            }
+        }
+        return prime;
     }
 
 
