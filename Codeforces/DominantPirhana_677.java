@@ -28,20 +28,18 @@ public class DominantPirhana_677 {
             }
             if (flag==1){
                 for (i = 0; i < n; i++) {
-                    int count=0;
-                    int temp=arr[i];
-                    j=i-1;k=i+1;
-                    while (j>=0 && arr[j]<arr[i]){
-                        if (arr[j]<arr[i])
-                            count++;
-                        j--;
-                    }while (k<n && arr[k]<arr[i]){
-                        if (arr[k]<arr[i])
-                            count++;
-                        k++;
+                    if(arr[i]==max && i>0 && i!=n-1){
+                        if (arr[i-1]!=max || arr[i+1]!=max) {
+                            out.println(i + 1);
+                            break;
+                        }
                     }
-                    if (arr[i]+count>max) {
-                        out.println(i + 1);
+                    else if (arr[i]==max && i==0 && arr[i+1]!=max) {
+                        out.println(1);
+                        break;
+                    }
+                    else if (arr[i]==max && i==n-1) {
+                        out.println(n);
                         break;
                     }
                 }
