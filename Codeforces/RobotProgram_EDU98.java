@@ -16,10 +16,10 @@ public class RobotProgram_EDU98 {
         while(t-->0) {
             int x = sc.nextInt();
             int y= sc.nextInt();
-            if (Math.abs(x-y)>1)
+            if (x!=y)
                 out.println(2*Math.max(x,y)-1);
             else
-                out.println(x+y);
+                out.println(2*x);
         }
         out.close();
     }
