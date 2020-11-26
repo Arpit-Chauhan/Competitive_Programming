@@ -22,10 +22,10 @@ public class UniqueBidAuction_686 {
                 map.put(arr[i], map.getOrDefault(arr[i],0)+1);
             int min=Integer.MAX_VALUE;
             int flag=0;
-            for (Map.Entry mp:map.entrySet()){
-                int val=(int)mp.getValue();
+            for (int k:map.keySet()){
+                int val=map.get(k);
                 if (val==1){
-                    min=Math.min(min,(int)mp.getKey());
+                    min=Math.min(min,k);
                     flag=1;
                 }
             }
