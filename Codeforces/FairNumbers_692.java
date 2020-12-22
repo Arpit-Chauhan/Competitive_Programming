@@ -15,20 +15,14 @@ public class FairNumbers_692 {
         t = sc.nextInt();
         while (t-->0) {
             long n = sc.nextLong();
-            while (true) {
+            while (n<=n+2520) {
                 s = Long.toString(n);
-                Set<Integer> set = new HashSet<>();
+                boolean flag = false;
                 for (i = 0; i < s.length(); i++) {
                     int temp = Integer.parseInt(String.valueOf(s.charAt(i)));
-                    set.add(temp);
-                }
-                boolean flag = false;
-                for (i = 2; i <= 9; i++) {
-                    if (set.contains(i)) {
-                        if (n % i != 0) {
-                            flag = true;
-                            break;
-                        }
+                    if(temp!=0 && n%temp!=0) {
+                        flag = true;
+                        break;
                     }
                 }
                 if (!flag) {
