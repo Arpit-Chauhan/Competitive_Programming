@@ -1,0 +1,140 @@
+import java.io.*;
+import java.util.*;
+
+
+public class Fruits {
+
+    public static void main(String args[]) throws IOException {
+
+        FastReader sc = new FastReader();
+        PrintWriter out = new PrintWriter(System.out);
+
+        int tc, i, j;
+        String s;
+        char p;
+
+        tc =1;
+        while (tc-- > 0) {
+            int n = sc.nextInt();
+            int m= sc.nextInt();
+            int arr[] = sc.readArray(n);
+            ArrayList<Pair> list=new ArrayList<>();
+            Map<String,Integer> map=new HashMap<>();
+            int temp=m;
+            while (temp-->0){
+                s=sc.nextLine();
+                map.put(s,map.getOrDefault(s,0)+1);
+            }
+            for(Map.Entry<String,Integer> entry : map.entrySet()) {
+                String key= entry.getKey();
+                int value=entry.getValue();
+                list.add(new Pair(key,value));
+            }
+            Collections.sort(list);
+            Arrays.sort(arr);
+            int lowprice=getPrice(list,arr);
+            out.print(lowprice+" ");
+            sc.sort(arr);
+            int highprice=getPrice(list,arr);
+            out.println(highprice);
+        }
+        out.close();
+    }
+
+    static class Pair implements Comparable<Pair>{
+        String s;int y;
+        Pair(String s,int y){
+         this.s=s;
+         this.y=y;
+        }
+        @Override
+        public int compareTo(Pair o) {
+            return o.y-this.y;
+        }
+    }
+
+    public static int getPrice(ArrayList<Pair> list,int arr[]){
+        int cost=0;int pos=0;
+        for (Pair pair : list) {
+            cost += pair.y * arr[pos];
+            pos++;
+        }
+        return cost;
+    }
+
+
+
+    /*
+		FASTREADER
+	*/
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new
+                    InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+
+        /*DEFINED BY ME*/
+
+        //READING ARRAY
+        int[] readArray(int n) {
+            int arr[] = new int[n];
+            for (int i = 0; i < n; i++)
+                arr[i] = nextInt();
+            return arr;
+        }
+
+        //COLLECTIONS SORT
+        void sort(int arr[]) {
+            ArrayList<Integer> l = new ArrayList<>();
+            for (int i : arr)
+                l.add(i);
+            Collections.sort(l,Collections.reverseOrder());
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = l.get(i);
+        }
+
+        //EUCLID'S GCD
+        int gcd(int a, int b) {
+            if (b != 0)
+                return gcd(b, a % b);
+            else
+                return a;
+        }
+    }
+}
