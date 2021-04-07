@@ -18,21 +18,26 @@ public class DigitGame_671
 		t=sc.nextInt();
 		
 		while(t-->0) {
-		a=sc.nextInt();
-		String b=sc.nextLine();
-		if(a==1) {
-		int temp=Integer.parseInt(String.valueOf(b.charAt(0)));
-		if(temp%2==0)
-			out.println(2);
-		else
-			out.println(1);
-		}
-		else {
-			if(a%2==0)
-				out.println(2);
-			if(a%2!=0)
-				out.println(1);		
-		}
+		n=sc.nextInt();
+		String s=sc.nextLine();
+            boolean odd=false,eve=false;
+            for (i = 0; i < n; i++) {
+                int temp=Integer.parseInt(String.valueOf(s.charAt(i)));
+                if (n%2==0 && temp%2==0 && (i+1)%2==0){
+                    out.println(2);
+                    eve=true;
+                    break;
+                }
+                if (n%2!=0 && temp%2!=0 && (i+1)%2!=0){
+                    out.println(1);
+                    odd=true;
+                    break;
+                }
+            }
+            if (!eve && n%2==0)
+                out.println(1);
+            if(!odd && n%2!=0)
+                out.println(2);
 		}
 
 		out.close();
