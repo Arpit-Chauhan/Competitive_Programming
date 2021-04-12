@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class ABCString {
+public class AString {
 
     public static void main(String args[]) {
 

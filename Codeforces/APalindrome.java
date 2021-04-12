@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class ABPalindrome {
+public class APalindrome {
 
     public static void main(String args[]) throws IOException {
 
