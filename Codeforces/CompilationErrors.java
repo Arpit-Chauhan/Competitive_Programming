@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class AbCompilationErrors {
+public class CompilationErrors {
 
     public static void main(String args[]) throws IOException {
 
