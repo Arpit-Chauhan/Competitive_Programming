@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class NumberofPairs {
+public class NumberOfPairs {
 
     public static void main(String args[]) throws IOException {
 
@@ -49,7 +49,7 @@ public class NumberofPairs {
         }
         out.close();
     }
-	
+
 
 
 /*--------------------------------------------------------
