@@ -28,12 +28,9 @@ public class KillTheMonster {
                 long arm=(coins-i)*armor;
                 long healthhc=hc+arm;
                 long dmghc=dc+weap;
-
-                long attack=hm/dmghc;
-                if(hm%dmghc!=0)
-                    attack++;
-                long newattack=attack-1;
-                if(healthhc-dm*newattack>0){
+                long cm=(long) Math.ceil(healthhc/(double)dm);
+                long dbm=(long) Math.ceil(hm/(double)dmghc);
+                if(dbm<=cm){
                     out.println("YES");
                     flag=true;
                     break;
