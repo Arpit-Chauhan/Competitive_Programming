@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class Queue {
+public class WeirdAlgorithm {
 
     public static void main(String args[]) throws IOException {
 
@@ -15,19 +15,21 @@ public class Queue {
 
         tc = 1;
         while (tc-- > 0) {
-            int n = sc.nextInt();
-            int arr[] = sc.readArray(n);
-            sc.sort(arr);
-            long sum=0;
-            int count=n;
-            for (i = 0; i < n; i++) {
-                if (sum>arr[i]) {
-                    count--;
-                    continue;
+            long n = sc.nextLong();
+            ArrayList<Long> ans=new ArrayList<>();
+            ans.add(n);
+            while(n!=1){
+                if (n%2==0){
+                    n/=2;
+                    ans.add(n);
                 }
-                sum+=arr[i];
+                else{
+                    n*=3;n++;
+                    ans.add(n);
+                }
             }
-            out.println(count);
+            for (long it:ans)
+            out.print(it+" ");
         }
         out.close();
     }

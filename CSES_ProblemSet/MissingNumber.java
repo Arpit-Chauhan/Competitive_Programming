@@ -2,48 +2,33 @@ import java.io.*;
 import java.util.*;
 
 
-
-public class LuckySum {
+public class MissingNumber {
 
     public static void main(String args[]) throws IOException {
 
         FastReader sc = new FastReader();
         PrintWriter out = new PrintWriter(System.out);
 
-        int tc, j;
+        int tc, i, j;
         String s;
         char p;
 
         tc = 1;
         while (tc-- > 0) {
-            long l = sc.nextLong();
-            long r= sc.nextLong();
-            TreeSet<Long> ans=generateLucky();
-            long sum=0;
-            while (l<=r) {
-                long h = ans.ceiling(l);
-                long t = Math.min(r, h);
-                sum += h*(t-l+1);
-                l = h+1;
-            }
-            out.println(sum);
+            int n = sc.nextInt();
+            int arr[] = sc.readArray(n-1);
+            int ans=0;
+            for (i = 0; i < n-1; i++)
+                ans^=arr[i];
+            for (i = 1; i <=n ; i++)
+                ans^=i;
+
+            out.println(ans);
         }
         out.close();
     }
 	
 
-    public static TreeSet<Long> generateLucky(){
-        Queue<String> q=new LinkedList<>();
-        q.add("4");q.add("7");
-        TreeSet<Long> set=new TreeSet<>();
-        for (int i = 0; i <10000 ; i++) {
-            String curr=q.poll();
-            set.add(Long.parseLong(curr));
-            q.add(curr+"4");
-            q.add(curr+"7");
-        }
-        return set;
-    }
 
 /*--------------------------------------------------------
 ----------------------------------------------------------*/
@@ -136,6 +121,12 @@ public class LuckySum {
                 return gcd(b, a % b);
             else
                 return a;
+        }
+
+        void swap(int arr[], int i, int j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
 }
