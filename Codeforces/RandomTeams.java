@@ -1,7 +1,4 @@
-/*
- * WA
- * */
-import java.io.*; 
+import java.io.*;
 import java.util.*; 
 
 
@@ -13,19 +10,22 @@ public class RandomTeams
 		
 		FastReader sc= new FastReader();
 		PrintWriter out = new PrintWriter(System.out);
-
-		
-		long n,m;
-
-		n=sc.nextLong();
-		m=sc.nextLong();
-		out.print(n/m*(n/m-1) / 2*(m-n% m)+(n/m+1)*n/m/2*(n%m)+" ");
-		out.println((n-m+1)*(n-m)/2);
+        long n=sc.nextLong(),m=sc.nextLong();
+        long max=n-m+1;
+        long imp, rem;
+        if(n%m==0){
+            imp=n/m;
+            rem=0;
+        }else{
+            imp=n/m;
+            rem=n%m;
+        }
+        long val=imp+1;
+        long min=rem*((val*(val-1))/2)+(m-rem)*((imp*(imp-1))/2);
+        long m_res=(max*(max-1))/2;
+        out.println(min+" "+m_res);
 		out.close();
-		
 	}
-	
-
 
 
 
